@@ -1,38 +1,48 @@
 /*
  * d_led.h
  *
- *  Created on: 26.07.2016
+ *  Created  on: 26.07.2016
+ *  Modified on: 31.10.2023
  *      Author: Unknown
  */
 #ifndef _d_led_h
-#define _d_del_h
-#define LED_a (1<<PB1)
-#define LED_b (1<<PB2)
-#define LED_c (1<<PB5)
-#define LED_d (1<<PB7)
-#define LED_e (1<<PB6)
-#define LED_f (1<<PB3)
-#define LED_g (1<<PB4)
+#define _d_led_h
+#define SEG_DOT (1<<PB0)
+#define SEG_A (1<<PB1)
+#define SEG_B (1<<PB2)
+#define SEG_C (1<<PB5)
+#define SEG_D (1<<PB7)
+#define SEG_E (1<<PB6)
+#define SEG_F (1<<PB3)
+#define SEG_G (1<<PB4)
 #define LED_K4 (1<<PD2)
 #define LED_K3 (1<<PD3)
 #define LED_K2 (1<<PD4)
 #define LED_K1 (1<<PD5)
 #define LED_KK LED_K1 | LED_K2 | LED_K3 | LED_K4
-#define LED_C0 LED_a | LED_b | LED_c | LED_d | LED_e | LED_f
-#define LED_C1 LED_b | LED_c
-#define LED_C2 LED_a | LED_b | LED_d | LED_g | LED_e
-#define LED_C3 LED_a | LED_b | LED_c | LED_g | LED_d
-#define LED_C4 LED_b | LED_c | LED_g | LED_f
-#define LED_C5 LED_a | LED_f | LED_g | LED_c | LED_d
-#define LED_C6 LED_a | LED_c | LED_d | LED_e | LED_f | LED_g
-#define LED_C7 LED_a | LED_b | LED_c
-#define LED_C8 LED_a | LED_b | LED_c | LED_d | LED_e | LED_f | LED_g
-#define LED_C9 LED_a | LED_b | LED_c | LED_d | LED_f | LED_g
-extern volatile uint8_t cy1;
-extern volatile uint8_t cy2;
-extern volatile uint8_t cy3;
-extern volatile uint8_t cy4;
-extern volatile uint8_t hz1;
-extern volatile uint8_t hz2;
+#define DIGIT_0 SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F    //Digit 0 consists of 6 lit segments
+#define DIGIT_1 SEG_B | SEG_C                                    //Digit 1 ... etc.
+#define DIGIT_2 SEG_A | SEG_B | SEG_D | SEG_G | SEG_E
+#define DIGIT_3 SEG_A | SEG_B | SEG_C | SEG_G | SEG_D
+#define DIGIT_4 SEG_B | SEG_C | SEG_G | SEG_F
+#define DIGIT_5 SEG_A | SEG_F | SEG_G | SEG_C | SEG_D
+#define DIGIT_6 SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+#define DIGIT_7 SEG_A | SEG_B | SEG_C
+#define DIGIT_8 SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G
+#define DIGIT_9 SEG_A | SEG_B | SEG_C | SEG_D | SEG_F | SEG_G
+
+extern uint8_t DigitMap[10];
+
 void d_led_init(void);
+
+extern volatile uint8_t pos1;
+extern volatile uint8_t pos2;
+extern volatile uint8_t pos3;
+extern volatile uint8_t pos4;
+
+extern volatile uint8_t hz1,hz2;
+
+uint8_t makeRefreshSlower();
+uint8_t makeRefreshFaster();
+
 #endif
