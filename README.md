@@ -9,5 +9,6 @@ Attiny2313 based educational tool to explain multiplexing effect of seven segmen
 + Third and fourth digits are flipped to use dots as separator.
 + Includes 3D printable case for 5x7cm prototype boards.
 
-
-
+## Pics
+![demo](https://github.com/roman-oberenkowski/multiplexing-demo-seven-segment/blob/44e86b28479492bac23e80ca281dcb536abf755c/Case/demo.jpg)
+![schematic](https://github.com/roman-oberenkowski/multiplexing-demo-seven-segment/blob/44e86b28479492bac23e80ca281dcb536abf755c/Schematic/Schematic.png)
